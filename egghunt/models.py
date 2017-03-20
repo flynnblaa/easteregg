@@ -12,7 +12,7 @@ class Egg(models.Model):
     locationName = models.CharField(max_length=255)
     latitude = models.FloatField()
     longitude = models.FloatField()
-    radius = models.FloatField()
+    radius_in_metres = models.FloatField()
     textClue = models.TextField(blank=True)
     visits = models.IntegerField(default=0)
     level = models.IntegerField(default=1)
@@ -26,7 +26,7 @@ class Egg(models.Model):
         # Use the awesome module from Python - no more actual formulae!
         egg = (self.latitude, self.longitude)
         hunter = (observerLatitude, observerLongitude)
-        return vincenty(egg, hunter).meters <= self.radius
+        return vincenty(egg, hunter).meters <= self.radius_in_metres
 
     def visit(self):
         self.visits+=1
