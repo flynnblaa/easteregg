@@ -12,5 +12,6 @@ import egghunt.views
 urlpatterns = [
     url(r'^$', egghunt.views.index, name='index'),
     url(r'^db', egghunt.views.db, name='db'),
+    url(r'^egghunt/', include('egghunt.urls')),
     url(r'^admin/', include(admin.site.urls)),
 ]

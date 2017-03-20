@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+
+
+<html>
+  <head>
+  <!-- Access the static css files for JS -->
+      <script type="text/javascript">
+            var pathToStyle = "{% static 'egghunt/css/style.css' %}";
+            var pathToXLarge = "{% static 'egghunt/css/style-xlarge.css' %}";
+            var pathToMedium = "{% static 'egghunt/css/style-medium.css' %}";
+            var pathToXSmall = "{% static 'egghunt/css/style-xsmall.css' %}";
+            var pathToSmall = "{% static 'egghunt/css/style-small.css' %}";
+            var pathToLarge = "{% static 'egghunt/css/style-large.css' %}";
+      </script>
+      <!--[if lte IE 8]><script src="{% static 'egghunt/js/html5shiv.js' %}"></script><![endif]-->
+      <script src="{% static 'egghunt/js/jquery.min.js' %}"></script>
+      <script src="{% static 'egghunt/js/skel.min.js' %}"></script>
+      <script src="{% static 'egghunt/js/skel-layers.min.js' %}"></script>
+      <script src="{% static 'egghunt/js/init.js' %}"></script>
+		<noscript>
+			<link rel="stylesheet" type="text/css" href="{% static 'egghunt/css/skel.css' %}" />
+			<link rel="stylesheet" type="text/css" href="{% static 'egghunt/css/style.css' %}" />
+			<link rel="stylesheet" type="text/css" href="{% static 'egghunt/css/stylexlarge.css' %}" />
+		</noscript>
+		<noscript>
+			<link rel="stylesheet" type="text/css" href="{% static 'egghunt/css/skel.css' %}" />
+			<link rel="stylesheet" type="text/css" href="{% static 'egghunt/css/style.css' %}" />
+			<link rel="stylesheet" type="text/css" href="{% static 'egghunt/css/stylexlarge.css' %}" />
+		</noscript>
+      <link rel="shortcut icon" type="image/x-icon" href="{% static 'egghunt/images/easter_egg_icon_sq.gif' %}" />
+
+
+	<link rel="stylesheet" type="text/css" href = "{% static 'egghunt/css/search.css' %}">
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC539rjTXSQ4jaJbzsnYr6YUijldCNBrnQ&libraries=places">
+    </script>
+    <script type="text/javascript" src="{% static 'egghunt/js/map.js' %}"></script>
+      <style>
+      body, html {height: 100%;}
+      #map-canvas {
+        height: 80vh;
+        background-color: #CCC;
+      }
+    </style>
+  </head>
+
+  <body>
+
+  		<!-- Header -->
+			<header id="header">
+                <h1><strong>The map room</strong></h1>
+				<nav id="nav">
+					<ul>
+						<li><a href="{% url 'index' %}">Home</a></li>
+						<li><a href="{% url 'map' %}">Map</a></li>
+						<li><a href="{% url 'leaderboard' %}">Leaderboard</a></li>
+					</ul>
+				</nav>
+			</header>
+
+        <!-- Map canvas -->
+
+            <section class="special">
+                <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+                <div class= "map" id="map-canvas"></div>
+                <div class="container special">
+                        <p></p>
+                        <form name = "mainForm"  action = "{% url 'mapresult' %}" onsubmit = "return validateForm()" method = "get">
+                            <input type="hidden" id = "lat" name="latitude" value="">
+                            <input type="hidden" id = "lng" name="longitude" value="">
+                            <input type="submit" id  = "digButton" class = "button special" value="Search here">
+                        </form>
+                </div>
+
+            <section>
+        <!-- Footer -->
+			<footer id="footer">
+				<div class="container">
+					<ul class="copyright">
+						<li>&copy; Adam E Foster</li>
+						<li>Design: <a href="http://templated.co">TEMPLATED</a></li>
+					</ul>
+				</div>
+			</footer>
+
+
+
+  </body>
+</html>
+
+
+

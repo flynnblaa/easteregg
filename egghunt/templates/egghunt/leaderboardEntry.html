@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<!--
+	Spatial by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+
+{% load staticfiles %}
+
+
+<html xmlns="http://www.w3.org/1999/html">
+	<head>
+		<title>eEaster Egg Hunt 2016 | Leaderboard Entry</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+        <!-- Access the static css files for JS -->
+		<script type="text/javascript">
+            var pathToStyle = "{% static 'egghunt/css/style.css' %}";
+            var pathToXLarge = "{% static 'egghunt/css/style-xlarge.css' %}";
+            var pathToMedium = "{% static 'egghunt/css/style-medium.css' %}";
+            var pathToXSmall = "{% static 'egghunt/css/style-xsmall.css' %}";
+            var pathToSmall = "{% static 'egghunt/css/style-small.css' %}";
+            var pathToLarge = "{% static 'egghunt/css/style-large.css' %}";
+        </script>
+		<!--[if lte IE 8]><script src="{% static 'egghunt/js/html5shiv.js' %}"></script><![endif]-->
+		<script src="{% static 'egghunt/js/jquery.min.js' %}"></script>
+		<script src="{% static 'egghunt/js/skel.min.js' %}"></script>
+		<script src="{% static 'egghunt/js/skel-layers.min.js' %}"></script>
+		<script src="{% static 'egghunt/js/init.js' %}"></script>
+        <noscript>
+            <link rel="stylesheet" type="text/css" href="{% static 'egghunt/css/skel.css' %}" />
+            <link rel="stylesheet" type="text/css" href="{% static 'egghunt/css/style.css' %}" />
+            <link rel="stylesheet" type="text/css" href="{% static 'egghunt/css/stylexlarge.css' %}" />
+        </noscript>
+        <link rel="shortcut icon" type="image/x-icon" href="{% static 'egghunt/images/easter_egg_icon_sq.gif' %}" />
+
+	</head>
+	<body>
+
+
+		<!-- Header -->
+			<header id="header">
+                <h1>{{ egg.locationName }}</h1>
+				<nav id="nav">
+					<ul>
+						<li><a href="{% url 'index' %}">Home</a></li>
+						<li><a href="{% url 'map' %}">Map</a></li>
+						<li><a href="{% url 'leaderboard' %}">Leaderboard</a></li>
+					</ul>
+				</nav>
+			</header>
+
+
+
+
+
+			{% if canEnter %}
+
+            <section id="form" class="wrapper style1">
+                <header class="major special">
+                            <h2>Congratulations</h2>
+                            <p>Completed Part {{ egg.levelJustEnded }}</p>
+                </header>
+
+                <div class="container">
+                <div class="row 50% uniform">
+                    <div class="12u$"><span class="image fit"><img src="{% static 'egghunt/images/Treasure-Map.jpg' %}" alt="" /></span></div>
+                </div>
+                </div>
+
+
+                <div class="wrapper container">
+                    <h3>Enter the leaderboard</h3>
+                    <form method="post" action="{% url 'cluesSubmit' olat olong 'submit' %}">
+                        {% csrf_token %}
+                        <div class="row uniform">
+                            <div class="6u 12u$(xsmall)">
+                                <input type="text" name="name" id="name" value="" placeholder="Name" />
+                            </div>
+                            <div class="12u$">
+                                <ul class="actions">
+                                    <li><input type="submit" value="Submit" class="special" /></li>
+                                    {% if egg.finalEnd %}
+                                    <li><a href="{% url 'index' %}" class="button special">Home</a></li>
+                                    {% else %}
+                                    <li><a href="{% url 'cluesToClue' olat olong 'toclue' %}" class="button special">Skip</a></li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                {% else %}
+
+                <section id="form" class="wrapper style1 special">
+
+                    <header class="major special">
+                            <h2>Congratulations</h2>
+                            <p>Completed Part {{ egg.levelJustEnded }}</p>
+                    </header>
+
+
+                    <div class="container special">
+                        <p>You've been recorded on the leaderboard</p>
+						<ul class="actions">
+                            {% if not egg.finalEnd %}
+                            <li><a href="{% url 'cluesToClue' olat olong 'toclue' %}" class="button special">Continue to Part {{ egg.level }}</a></li>
+                            {% endif %}
+                            <li><a href="{% url 'leaderboard' %}" class="button special">Leaderboard</a></li>
+                            <li><a href="{% url 'index' %}" class="button special">Home</a></li>
+
+					    </ul>
+                    </div>
+
+
+                {% endif %}
+
+			</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="container">
+					<ul class="copyright">
+						<li>&copy; Adam E Foster</li>
+						<li>Design: <a href="http://templated.co">TEMPLATED</a></li>
+					</ul>
+				</div>
+			</footer>
+
+	</body>
+</html>

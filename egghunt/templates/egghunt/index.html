@@ -1,0 +1,181 @@
+<!DOCTYPE HTML>
+<!--
+	Spatial by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+
+{% load staticfiles %}
+
+
+<html>
+	<head>
+		<title>eEaster Egg Hunt 2016</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!-- Access the static css files for JS -->
+		<script type="text/javascript">
+            var pathToStyle = "{% static 'egghunt/css/style.css' %}";
+            var pathToXLarge = "{% static 'egghunt/css/style-xlarge.css' %}";
+            var pathToMedium = "{% static 'egghunt/css/style-medium.css' %}";
+            var pathToXSmall = "{% static 'egghunt/css/style-xsmall.css' %}";
+            var pathToSmall = "{% static 'egghunt/css/style-small.css' %}";
+            var pathToLarge = "{% static 'egghunt/css/style-large.css' %}";
+        </script>
+		<!--[if lte IE 8]><script src="{% static 'egghunt/js/html5shiv.js' %}"></script><![endif]-->
+		<script src="{% static 'egghunt/js/jquery.min.js' %}"></script>
+		<script src="{% static 'egghunt/js/skel.min.js' %}"></script>
+		<script src="{% static 'egghunt/js/skel-layers.min.js' %}"></script>
+		<script src="{% static 'egghunt/js/init.js' %}"></script>
+		<noscript>
+			<link rel="stylesheet" type="text/css" href="{% static 'egghunt/css/skel.css' %}" />
+			<link rel="stylesheet" type="text/css" href="{% static 'egghunt/css/style.css' %}" />
+			<link rel="stylesheet" type="text/css" href="{% static 'egghunt/css/stylexlarge.css' %}" />
+		</noscript>
+		<link rel="shortcut icon" type="image/x-icon" href="{% static 'egghunt/images/easter_egg_icon_sq.gif' %}" />
+	</head>
+	<body class="landing">
+
+		<!-- Header -->
+			<header id="header" class="alt">
+
+				<nav id="nav">
+					<ul>
+						<li><a href="{% url 'index' %}">Home</a></li>
+						<li><a href="{% url 'map' %}">Map</a></li>
+						<li><a href="{% url 'leaderboard' %}">Leaderboard</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Banner -->
+			<section id="banner">
+				<h2>eEaster Egg Hunt</h2>
+				<p>Follow a trail of postcard clues around the world </p>
+				<ul class="actions">
+					<li><a href="{% url 'map' %}" class="button special big">Play</a></li>
+				</ul>
+			</section>
+
+			<!-- Concept -->
+				<section id="concept" class="wrapper style1">
+					<div class="container 75%">
+						<div class="row 200%">
+							<div class="6u 12u$(medium)">
+								<header class="major">
+									<h2>The concept</h2>
+									<p>How the game works</p>
+								</header>
+							</div>
+							<div class="6u$ 12u$(medium)">
+                                <p> The eEaster Egg Hunt is a treasure hunt. Picture clues point to a location somewhere on Earth. You can investigate a location by placing a pin on a map. If you were right, you'll retrieve the next clue.  </p>
+								</div>
+						</div>
+					</div>
+				</section>
+
+
+			<!-- Specifics -->
+				<section id="specifics" class="wrapper style2 special">
+					<div class="container">
+						<header class="major special">
+							<h2>The details</h2>
+						</header>
+						<p><span class="image left"><img src="{% static 'egghunt/images/easter_island.jpg' %}" alt="" /></span>To search for an egg, place a pin on the map. If you are within the accepted radius of the true location, you will move on to the next clue. Otherwise, you may need to drop your pin closer to the egg's location, or think about the clue agian. There's no need to save your progress because all clues are live at the same time, so you just need to remember the last egg location that you found.</p>
+						<p><span class="image right"><img src="{% static 'egghunt/images/seoul.png' %}" alt="" /></span>The clues are separated into two levels. Level 1 should be accessible to people with a good knowledge of the world. Level 2 is more difficult and use of Google is probably necessary. Using a similar-image search is cheating. Anything which you feel is probably cheating, is cheating. </p>
+                        <p>Enjoy the hunt</p>
+					</div>
+				</section>
+
+            <!-- Get started -->
+				<section id="started" class="wrapper style3 special">
+					<div class="container">
+						<header class="major">
+							<h2>Time to get started</h2>
+						</header>
+						<ul class="actions">
+							<li><a href="{% url 'map' %}" class="button special big">To the map</a></li>
+						</ul>
+					</div>
+				</section>
+
+            <!-- Leaderboard -->
+				<section id="leaderboard" class="wrapper style1">
+					<div class="container">
+						<header class="major special">
+							<h2>Leaderboard</h2>
+						</header>
+                        <header><h3>Part 1</h3></header>
+                        {% if leader1 %}
+						<div class="table-wrapper">
+								<table>
+									<thead>
+										<tr>
+											<th>Position</th>
+											<th>Name</th>
+											<th>Time</th>
+										</tr>
+									</thead>
+									<tbody>
+                                    {% for leader in leader1 %}
+
+										<tr>
+											<td>{{ forloop.counter }}</td>
+											<td>{{ leader.name }}</td>
+											<td>{{ leader.publicationDate }}</td>
+										</tr>
+                                    {% endfor %}
+									</tbody>
+								</table>
+							</div>
+                        {% else %}
+                        No-one here yet
+                        {% endif %}
+
+                        <header><h3>Part 2</h3></header>
+                        {% if leader2 %}
+
+                        <div class="table-wrapper">
+								<table>
+									<thead>
+										<tr>
+											<th>Position</th>
+											<th>Name</th>
+											<th>Time</th>
+										</tr>
+									</thead>
+									<tbody>
+                                    {% for leader in leader2 %}
+
+										<tr>
+											<td>{{ forloop.counter }}</td>
+											<td>{{ leader.name }}</td>
+											<td>{{ leader.publicationDate }}</td>
+										</tr>
+										</tr>
+                                    {% endfor %}
+									</tbody>
+								</table>
+							</div>
+                        {% else %}
+                        No-one here yet
+                        {% endif %}
+
+					</div>
+				</section>
+
+
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="container">
+					<ul class="copyright">
+						<li>&copy; Adam E Foster</li>
+						<li>Design: <a href="http://templated.co">TEMPLATED</a></li>
+					</ul>
+				</div>
+			</footer>
+
+	</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<!--
+	Spatial by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+
+{% load staticfiles %}
+
+
+<html xmlns="http://www.w3.org/1999/html">
+	<head>
+		<title>eEaster Egg Hunt 2016 | Clues</title>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+        <!-- Access the static css files for JS -->
+		<script type="text/javascript">
+            var pathToStyle = "{% static 'egghunt/css/style.css' %}";
+            var pathToXLarge = "{% static 'egghunt/css/style-xlarge.css' %}";
+            var pathToMedium = "{% static 'egghunt/css/style-medium.css' %}";
+            var pathToXSmall = "{% static 'egghunt/css/style-xsmall.css' %}";
+            var pathToSmall = "{% static 'egghunt/css/style-small.css' %}";
+            var pathToLarge = "{% static 'egghunt/css/style-large.css' %}";
+        </script>
+		<!--[if lte IE 8]><script src="{% static 'egghunt/js/html5shiv.js' %}"></script><![endif]-->
+		<script src="{% static 'egghunt/js/jquery.min.js' %}"></script>
+		<script src="{% static 'egghunt/js/skel.min.js' %}"></script>
+		<script src="{% static 'egghunt/js/skel-layers.min.js' %}"></script>
+		<script src="{% static 'egghunt/js/init.js' %}"></script>
+        <noscript>
+            <link rel="stylesheet" type="text/css" href="{% static 'egghunt/css/skel.css' %}" />
+            <link rel="stylesheet" type="text/css" href="{% static 'egghunt/css/style.css' %}" />
+            <link rel="stylesheet" type="text/css" href="{% static 'egghunt/css/stylexlarge.css' %}" />
+        </noscript>
+		<link rel="shortcut icon" type="image/x-icon" href="{% static 'egghunt/images/easter_egg_icon_sq.gif' %}" />
+
+	</head>
+	<body>
+
+
+
+
+		<!-- Header -->
+			<header id="header">
+                <h1>{{ egg.locationName }}</h1>
+				<nav id="nav">
+					<ul>
+						<li><a href="{% url 'index' %}">Home</a></li>
+						<li><a href="{% url 'map' %}">Map</a></li>
+						<li><a href="{% url 'leaderboard' %}">Leaderboard</a></li>
+					</ul>
+				</nav>
+			</header>
+
+			<!-- Leaderboard -->
+				<section id="leaderboard" class="wrapper style1">
+					<div class="container">
+						<header class="major special">
+							<h2>Leaderboard</h2>
+						</header>
+                        <header><h3>Part 1</h3></header>
+                        {% if leader1 %}
+						<div class="table-wrapper">
+								<table>
+									<thead>
+										<tr>
+											<th>Position</th>
+											<th>Name</th>
+											<th>Time</th>
+										</tr>
+									</thead>
+									<tbody>
+                                    {% for leader in leader1 %}
+
+										<tr>
+											<td>{{ forloop.counter }}</td>
+											<td>{{ leader.name }}</td>
+											<td>{{ leader.publicationDate }}</td>
+										</tr>
+                                    {% endfor %}
+									</tbody>
+								</table>
+							</div>
+                        {% else %}
+                        No-one here yet
+                        {% endif %}
+
+                        <header><h3>Part 2</h3></header>
+                        {% if leader2 %}
+
+                        <div class="table-wrapper">
+								<table>
+									<thead>
+										<tr>
+											<th>Position</th>
+											<th>Name</th>
+											<th>Time</th>
+										</tr>
+									</thead>
+									<tbody>
+                                    {% for leader in leader2 %}
+
+										<tr>
+											<td>{{ forloop.counter }}</td>
+											<td>{{ leader.name }}</td>
+											<td>{{ leader.publicationDate }}</td>
+										</tr>
+										</tr>
+                                    {% endfor %}
+									</tbody>
+								</table>
+							</div>
+                        {% else %}
+                        No-one here yet
+                        {% endif %}
+
+					</div>
+				</section>
+
+
+
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="container">
+					<ul class="copyright">
+						<li>&copy; Adam E Foster</li>
+						<li>Design: <a href="http://templated.co">TEMPLATED</a></li>
+					</ul>
+				</div>
+			</footer>
+
+	</body>
+</html>
