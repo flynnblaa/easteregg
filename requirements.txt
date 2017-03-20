@@ -5,3 +5,4 @@ psycopg2==2.6.1
 whitenoise==2.0.6
 geopy>=1.11.0
 django-ipware>=1.1.6
+Pillow>=4.0.0
