@@ -1,8 +1,12 @@
-from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, render_to_response
 
-from .models import Greeting
+from django.http import HttpResponseRedirect, HttpResponse
+from django.core.urlresolvers import reverse
+from django.utils import timezone
 
+from .models import Egg, LeaderboardEntry
+from ipware.ip import get_ip
+from random import randrange
 
 # Create your views here.
 def top_index(request):
