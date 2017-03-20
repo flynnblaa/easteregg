@@ -1,8 +1,8 @@
 {
-  "name": "Start on Heroku: Python",
-  "description": "A barebones Python app, which can easily be deployed to Heroku.",
+  "name": "eEasterEgg",
+  "description": "Follow a trail of picture postcard clues around the world",
   "image": "heroku/python",
-  "repository": "https://github.com/heroku/python-getting-started",
-  "keywords": ["python", "django" ],
+  "repository": "https://github.com/ae-foster/easteregg",
+  "keywords": ["python", "django", "easter"],
   "addons": [ "heroku-postgresql" ]
 }
