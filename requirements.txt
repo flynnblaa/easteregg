@@ -7,4 +7,4 @@ geopy>=1.11.0
 django-ipware>=1.1.6
 django-storages>=1.5.2
 Pillow>=4.0.0
-
+dropbox>=7.2.1
