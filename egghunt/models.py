@@ -4,8 +4,14 @@ from geopy.distance import vincenty
 from random import choice
 from string import digits, ascii_uppercase
 from os.path import splitext
+from storages.backends.dropbox import DropBoxStorage
 
-# Create your models here.
+from django.conf import settings
+
+
+print(settings.DROPBOX_OAUTH2_TOKEN)
+STORAGE = DropBoxStorage()
+
 
 class Egg(models.Model):
     sequenceNumber = models.IntegerField()
@@ -35,12 +41,12 @@ class Egg(models.Model):
 
 def random_filename(instance, filename):
     _, extension = splitext(filename)
-    return 'clueimage/' + ''.join(choice(ascii_uppercase + digits) for _ in range(12)) + extension
+    return '/clueimage/' + ''.join(choice(ascii_uppercase + digits) for _ in range(12)) + extension
+
 
 class Image(models.Model):
     egg = models.ForeignKey(Egg)
-    image = models.ImageField(upload_to=random_filename)
-
+    image = models.ImageField(upload_to=random_filename, storage=STORAGE)
 
 
 class LeaderboardEntry(models.Model):
