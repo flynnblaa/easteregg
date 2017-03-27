@@ -9,11 +9,13 @@ var map = new google.maps.Map(document.getElementById('map-canvas'),
  var marker = new google.maps.Marker({  });
  var lat = document.getElementById("lat");
  var lng = document.getElementById("lng");
+ var button =  document.getElementById("digButton");
 
 google.maps.event.addListener(map, 'click', function(event) {
  marker.setPosition(event.latLng);
  lat.setAttribute("value", marker.getPosition().lat());
  lng.setAttribute("value", marker.getPosition().lng());
+ button.style.backgroundColor = '#f32853';
  if (marker.getMap() == null)
 	 {
 	   marker.setMap(map);
