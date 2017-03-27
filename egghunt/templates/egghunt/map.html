@@ -38,10 +38,28 @@
     </script>
     <script type="text/javascript" src="{% static 'egghunt/js/map.js' %}"></script>
       <style>
-      body, html {height: 100%;}
+      body, html {height: 100vh;}
       #map-canvas {
-        height: 80vh;
+        height: 100%;
         background-color: #CCC;
+        position: relative;
+      }
+      #map-section {
+          height: 100%;
+      }
+      #map-form-div {
+          padding-top:40px;
+          padding-bottom:40px;
+          position: relative;
+          bottom: 20px;
+          right: 20px;
+      }
+      #map-form {
+          position: relative;
+          top: -120px;
+      }
+      #skel-layers-wrapper {
+          height:100%;
       }
     </style>
   </head>
@@ -62,19 +80,19 @@
 
         <!-- Map canvas -->
 
-            <section class="special">
+            <section class="special" id="map-section">
                 <input id="pac-input" class="controls" type="text" placeholder="Search Box">
                 <div class= "map" id="map-canvas"></div>
-                <div class="container special">
-                        <p></p>
-                        <form name = "mainForm"  action = "{% url 'mapresult' %}" onsubmit = "return validateForm()" method = "get">
-                            <input type="hidden" id = "lat" name="latitude" value="">
-                            <input type="hidden" id = "lng" name="longitude" value="">
-                            <input type="submit" id  = "digButton" class = "button special" value="Search here">
+                <div id="map-form-div">
+                       <form id="map-form"name="mainForm" class="search-button
+                           " action="/egghunt/mapresult" onsubmit="return validateForm()" method="get">
+                            <input type="hidden" id="lat" name="latitude" value="">
+                            <input type="hidden" id="lng" name="longitude" value="">
+                            <input type="submit" id="digButton" class="button special" value="Search here">
                         </form>
                 </div>
 
-            <section>
+            </section>
         <!-- Footer -->
 			<footer id="footer">
 				<div class="container">
