@@ -27,6 +27,9 @@ def mapresult(request):
     lng = request.GET['longitude']
     return HttpResponseRedirect(reverse('clues', args=(lat, lng)))
 
+def start(request):
+    return render(request, 'egghunt/start.html')
+
 
 def clues(request, observerLatitude, observerLongitude, noLeader=False, formSubmit=False):
     nearbyEggs = [egg for egg in Egg.objects.all() if egg.isClose(observerLatitude, observerLongitude)]

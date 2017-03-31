@@ -26,7 +26,7 @@ class Egg(models.Model):
     finalEnd = models.BooleanField(default=False)
 
     def __str__(self):
-        return str(self.sequenceNumber)+". "+str(self.locationName)
+        return str(self.level) + " / " + str(self.sequenceNumber)+". "+str(self.locationName)
 
     def isClose(self, observerLatitude, observerLongitude):
         # Use the awesome module from Python - no more actual formulae!
