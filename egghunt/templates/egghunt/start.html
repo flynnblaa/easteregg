@@ -1,17 +1,16 @@
 {% extends "egghunt/white.html" %}
 {% load staticfiles %}
-{% block title %}Start here{% endblock %}
-{% block pagetitle %}{{ egg.locationName }}{% endblock %}
+{% block title %}Start{% endblock %}
+{% block pagetitle %}Start{% endblock %}
 {% block main %}
 
 			<!-- The background -->
 				<section id="background" class="wrapper">
 
-                        <header class="major special">
-                            <h2>Start here</h2>
-                        </header>
 
                         <div class="container">
+                            <span class="image fit"><img src="{% static 'egghunt/images/burning-man.jpg' %}" alt="" /></span>
+
                             <h3>How it works</h3>
                             <p>
                                 The eEaster Egg Hunt works like any other Easter egg hunt.
@@ -23,6 +22,7 @@
                             <p>
                                 To search for a clue at a location, you drop a pin on the map at that location and click "Search Here".
                             </p>
+
                             <h3>Resuming</h3>
                             <p>
                                 You can pause and resume the hunt at any time. Just remember the last location that you visited.
@@ -39,12 +39,15 @@
                                 For every clue, your pin needs to be within a certain radius of the true location to be accepted.
                                 If you think you have the right answer but it is not accepted, try to get closer to the precise location.
                             </p>
+                            <span class="image fit"><img src="{% static 'egghunt/images/train-tracks.jpg' %}" alt="" /></span>
+
                         </div>
 
 				</section>
 
 
-            <!-- Go to first clue -->
+            <!-- Go to first clue
+             -->
 				<section id="firstclue" class="wrapper style1 special">
 					<div class="container">
 						<ul class="actions">
