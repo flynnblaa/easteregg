@@ -11,9 +11,7 @@ Beatles: Liverpool, Lord of the Rings: New Zealand
 
 
 TODO
-complete the intro text
-tidy up start pages
-compress images
+validate images on upload
 make part I
 tell Tom
 Get email addresses

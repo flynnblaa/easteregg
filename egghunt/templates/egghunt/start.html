@@ -4,56 +4,56 @@
 {% block pagetitle %}Start{% endblock %}
 {% block main %}
 
-			<!-- The background -->
-				<section id="background" class="wrapper">
+    <!-- The background -->
+        <section id="background" class="wrapper">
 
 
-                        <div class="container">
-                            <span class="image fit"><img src="{% static 'egghunt/images/burning-man.jpg' %}" alt="" /></span>
+                <div class="container">
+                    <span class="image fit"><img src="{% static 'egghunt/images/burning-man.jpg' %}" alt="" /></span>
 
-                            <h3>How it works</h3>
-                            <p>
-                                The eEaster Egg Hunt works like any other Easter egg hunt.
-                                You start with a clue.
-                                The clue leads you to a location.
-                                At the location, you'll find another clue.
-                            </p>
-                            <h3>Using the map</h3>
-                            <p>
-                                To search for a clue at a location, you drop a pin on the map at that location and click "Search Here".
-                            </p>
+                    <h3>How it works</h3>
+                    <p>
+                        The eEaster Egg Hunt works like any other Easter egg hunt.
+                        You start with a clue.
+                        The clue leads you to a location.
+                        At the location, you'll find another clue.
+                    </p>
+                    <h3>Using the map</h3>
+                    <p>
+                        To search for a clue at a location, you drop a pin on the map at that location and click "Search Here".
+                    </p>
 
-                            <h3>Resuming</h3>
-                            <p>
-                                You can pause and resume the hunt at any time. Just remember the last location that you visited.
-                                When you want to resume, return to that location using the map.
-                            </p>
-                            <h3>Solving the clues</h3>
-                            <p>
-                                The clues can be <em>difficult</em> and you're not expected to "just know it".
-                                Using Google <strong>is allowed</strong>.
-                                Using Google search-by-image <strong>is not allowed</strong>.
-                                Anything you think is probably cheating, is cheating.
-                            </p>
-                            <p>
-                                For every clue, your pin needs to be within a certain radius of the true location to be accepted.
-                                If you think you have the right answer but it is not accepted, try to get closer to the precise location.
-                            </p>
-                            <span class="image fit"><img src="{% static 'egghunt/images/train-tracks.jpg' %}" alt="" /></span>
+                    <h3>Resuming</h3>
+                    <p>
+                        You can pause and resume the hunt at any time. Just remember the last location that you visited.
+                        When you want to resume, return to that location using the map.
+                    </p>
+                    <h3>Solving the clues</h3>
+                    <p>
+                        The clues can be <em>difficult</em> and you're not expected to "just know it".
+                        Using Google <strong>is allowed</strong>.
+                        Using Google search-by-image <strong>is not allowed</strong>.
+                        Anything you think is probably cheating, is cheating.
+                    </p>
+                    <p>
+                        For every clue, your pin needs to be within a certain radius of the true location to be accepted.
+                        If you think you have the right answer but it is not accepted, try to get closer to the precise location.
+                    </p>
+                    <span class="image fit"><img src="{% static 'egghunt/images/train-tracks.jpg' %}" alt="" /></span>
 
-                        </div>
+                </div>
 
-				</section>
+        </section>
 
 
-            <!-- Go to first clue
-             -->
-				<section id="firstclue" class="wrapper style1 special">
-					<div class="container">
-						<ul class="actions">
-							<li><a href="{% url 'clues' 0 0 %}" class="button special big">First clue</a></li>
-						</ul>
-					</div>
-				</section>
+    <!-- Go to first clue
+     -->
+        <section id="firstclue" class="wrapper style1 special">
+            <div class="container">
+                <ul class="actions">
+                    <li><a href="{% url 'clues' 0 0 %}" class="button special big">First clue</a></li>
+                </ul>
+            </div>
+        </section>
 
 {% endblock %}

@@ -14,7 +14,7 @@
 
                         <div class="container">
                             <p>
-                                {{ egg.textClue }}
+                                {{ egg.textClue | safe }}
                             </p>
                             <div class="row 50% uniform">
 								{% for image in egg.image_set.all %}
