@@ -13,13 +13,13 @@ def top_index(request):
     return HttpResponseRedirect('/egghunt/')
 
 def index(request):
-    topLeaders1 = LeaderboardEntry.objects.filter(level__exact=1).order_by('-publicationDate')[:5]
-    topLeaders2 = LeaderboardEntry.objects.filter(level__exact=2).order_by('-publicationDate')[:5]
+    topLeaders1 = LeaderboardEntry.objects.filter(level__exact=1).order_by('publicationDate')[:5]
+    topLeaders2 = LeaderboardEntry.objects.filter(level__exact=2).order_by('publicationDate')[:5]
     return render(request, 'egghunt/index.html', {'leader1': topLeaders1, 'leader2': topLeaders2})
 
 def leaderboard(request):
-    topLeaders1 = LeaderboardEntry.objects.filter(level__exact=1).order_by('-publicationDate')
-    topLeaders2 = LeaderboardEntry.objects.filter(level__exact=2).order_by('-publicationDate')
+    topLeaders1 = LeaderboardEntry.objects.filter(level__exact=1).order_by('publicationDate')
+    topLeaders2 = LeaderboardEntry.objects.filter(level__exact=2).order_by('publicationDate')
     return render(request, 'egghunt/leaderboard.html', {'leader1': topLeaders1, 'leader2': topLeaders2})
 
 def mapresult(request):
